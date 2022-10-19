@@ -75,6 +75,9 @@
               <p>
                 <label id="sum"></label>
               </p>
+              <p>
+                <label id="average"></label>
+              </p>
             </div>
           </div>
         </div>
@@ -118,9 +121,19 @@
 
   function averageComputation(){
     var number = document.getElementById("number").value;
-    var num;
+    let adder = 1;
+    let sum = 0;
     var average;
+
+    for (adder; adder <= number; adder++){
+      sum = sum + adder;
+    }
+
+    average = sum / number;
+    average = average.toFixed(2);
+    document.getElementById("average").innerHTML = "Average: " + average;
   }
+
 </script> 
 </body>
 </html>
