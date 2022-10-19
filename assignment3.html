@@ -61,7 +61,6 @@
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
-              <input>
                 <label>Chosen Number: </label>
                 <input id="number" type="number" placeholder="Enter Value"></input>
               </p>
@@ -71,8 +70,10 @@
                 <button input type="button" value="compute" class="w3-button w3-theme-d1" onclick="averageComputation()">Average</button>
               </p>
               <p>
-                <label>Factorial: </label>
                 <label id="factorial"></label>
+              </p>
+              <p>
+                <label id="sum"></label>
               </p>
             </div>
           </div>
@@ -100,7 +101,7 @@
       factorial = factorial * num;
       num++;
     }
-    document.getElementById("factorial").innerHTML = factorial;
+    document.getElementById("factorial").innerHTML = "Factorial: " + factorial;
   }
 
   function sumComputation(){
@@ -113,6 +114,7 @@
       sum = number + newNum;
       newNum--;
     } while (newNum < 0);
+    document.getElementById("sum").innerHTML = "Sum: " + sum;
   }
 
   function averageComputation(){
