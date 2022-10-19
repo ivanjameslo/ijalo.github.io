@@ -70,7 +70,7 @@
               </p>
               <p>
                 <label>Income Tax: </label>
-                <label id = incomeTax></label>
+                <label id = incomeTax style="color:green"></label>
               </p>
                 <br>
             </div>
@@ -97,6 +97,7 @@
     if (taxIncome <= 250000){
       incomeTax = 0.00;
       finalIncomeTax = incomeTax.toFixed(2);
+      finalIncomeTax.toLocalString();
       document.getElementById("incomeTax").innerHTML = finalIncomeTax;
     }
     else if (taxIncome > 250000 && taxIncome <=400000){
@@ -107,21 +108,25 @@
     else if (taxIncome > 400000 && taxIncome <= 800000){
       incomeTax = ((taxIncome - 400000) * 0.25) + 30000;
       finalIncomeTax = incomeTax.toFixed(2);
+      finalIncomeTax.toLocalString();
       document.getElementById("incomeTax").innerHTML = finalIncomeTax;
     }
     else if (taxIncome > 800000 && taxIncome <= 2000000){
       incomeTax = ((taxIncome - 800000) *0.30) + 130000;
       finalIncomeTax = incomeTax.toFixed(2);
+      finalIncomeTax.toLocalString();
       document.getElementById("incomeTax").innerHTML = finalIncomeTax;
     }
     else if (taxIncome > 2000000 && taxIncome <= 8000000){
       incomeTax = ((taxIncome - 2000000) *0.32) + 490000;
       finalIncomeTax = incomeTax.toFixed(2);
+      finalIncomeTax.toLocalString();
       document.getElementById("incomeTax").innerHTML = finalIncomeTax;
     }
     else if (taxIncome > 8000000){
       incomeTax = ((taxIncome - 8000000) * 0.35) + 2410000;
       finalIncomeTax = incomeTax.toFixed(2);
+      finalIncomeTax.toLocalString();
       document.getElementById("incomeTax").innerHTML = finalIncomeTax;
     }
   }
