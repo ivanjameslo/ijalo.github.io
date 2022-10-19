@@ -50,7 +50,7 @@
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
               <h1>Income Tax Calculator</h1>
-              <h6>Below are the measurements that you can try to converting! Click the Home icon on the upper left if you want to go back to the Main Page. Thank you!</h6>
+              <h6>You can input your taxable income below and find out how much is the income tax. Click the Home icon on the upper left if you want to go back to the Main Page. Thank you!</h6>
               <br>
             </div>
           </div>
@@ -61,64 +61,15 @@
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
-              <h4 style="text-align:left"> 1. Celsius to Fahrenheit</h4>
-              <p><label>Celsius</label>
-                <input id="inputCelsius" type="number" placeholder="Enter Value"
-                oninput="CtoF(this.value)"
-                onchange="CtoF(this.value)">
+              <input>
+                <label>Taxable Income: </label>
+                <input id="taxableIncome" type="number" placeholder="Enter Value"></input>
+                <button input type="button" value="compute" class="w3-button w3-theme-d1 w3-margin-bottom" onclick="computation()">Compute</button>
               </p>
-              <p>The Fahrenheit value is <span id="outputFahrenheit" style="color:blue"></span></p>
-                <br>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="w3-row-padding" style ="margin: 20px auto">
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h4 style="text-align:left"> 2. Fahrenheit to Celsius</h4>
-              <p><label>Fahrenheit</label>
-                <input id="inputFahrenheit" type="number" placeholder="Enter Value"
-                oninput="FtoC(this.value)"
-                onchange="FtoC(this.value)">
+              <p>
+                <label>Income Tax: </label>
+                <label id = incomeTax></label>
               </p>
-              <p>The Celsius value is <span id="outputCelsius" style="color:blue"></span></p>
-                <br>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="w3-row-padding" style ="margin: 20px auto">
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h4 style="text-align:left"> 3. Meters to Feet</h4>
-              <p><label>Meters</label>
-                <input id="inputMeters" type="number" placeholder="Enter Value"
-                oninput="MtoFT(this.value)"
-                onchange="MtoFT(this.value)">
-              </p>
-              <p>The Feet value is <span id="outputFeet" style="color:purple"></span></p>
-                <br>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="w3-row-padding" style ="margin: 20px auto">
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h4 style="text-align:left"> 4. Feet to Meters</h4>
-              <p><label>Feet</label>
-                <input id="inputFeet" type="number" placeholder="Enter Value"
-                oninput="FTtoM(this.value)"
-                onchange="FTtoM(this.value)">
-              </p>
-              <p>The Meter value is <span id="outputMeters" style="color:purple"></span></p>
                 <br>
             </div>
           </div>
@@ -137,21 +88,34 @@
 
 <script>
 
-  function CtoF(celsius) {
-    celsius = parseFloat(celsius);
-    document.getElementById("outputFahrenheit").innerHTML = (celsius * 9 / 5) + 32; }
-
-  function FtoC(fahrenheit) {
-    fahrenheit = parseFloat(fahrenheit);
-    document.getElementById("outputCelsius").innerHTML = (fahrenheit-32) * 5 / 9; }
-
-  function MtoFT(meters) {
-    meters = parseFloat(meters);
-    document.getElementById("outputFeet").innerHTML = meters * 3.28084; }
-
-  function FTtoM(feet) {
-    feet = parseFloat(feet);
-    document.getElementById("outputMeters").innerHTML = feet * 0.3048; }
+  function computation() {
+    var taxIncome = document.getElementById("taxableIncome").value;
+    var incomeTax;
+    if (taxIncome <= 250000){
+      incomeTax = 0.00;
+      document.getElementById("incomeTax").innerHTML = incomeTax;
+    }
+    else if (taxIncome > 250000 && taxIncome <=400000){
+      incomeTax = (taxIncome - 250000) * 0.20;
+      document.getElementById("incomeTax").innerHTML = incomeTax;
+    }
+    else if (taxIncome > 400000 && taxIncome <= 800000){
+      incomeTax = ((taxIncome - 400000) * 0.25) + 30000;
+      document.getElementById("incomeTax").innerHTML = incomeTax;
+    }
+    else if (taxIncome > 800000 && taxIncome <= 2000000){
+      incomeTax = ((taxIncome - 800000) *0.30) + 130000;
+      document.getElementById("incomeTax").innerHTML = incomeTax;
+    }
+    else if (taxIncome > 2000000 && taxIncome <= 8000000){
+      incomeTax = ((taxIncome - 2000000) *0.32) + 490000;
+      document.getElementById("incomeTax").innerHTML = incomeTax;
+    }
+    else if (taxIncome > 8000000){
+      incomeTax = ((taxIncome - 8000000) * 0.35) + 2410000;
+      document.getElementById("incomeTax").innerHTML = incomeTax;
+    }
+  }
 
 </script> 
 </body>
