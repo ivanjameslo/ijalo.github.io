@@ -50,7 +50,7 @@
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
               <h1>Nth Factorial, Sum, and Average</h1>
-              <h6>Below are the measurements that you can try to converting! Click the Home icon on the upper left if you want to go back to the Main Page. Thank you!</h6>
+              <h6>Input a whole number below and and see the factorial of it. Also, you'll be able to see the sum and average of that number's factorial! Click the Home icon on the upper left if you want to go back to the Main Page. Thank you!</h6>
               <br>
             </div>
           </div>
@@ -61,65 +61,19 @@
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
-              <h4 style="text-align:left"> 1. Celsius to Fahrenheit</h4>
-              <p><label>Celsius</label>
-                <input id="inputCelsius" type="number" placeholder="Enter Value"
-                oninput="CtoF(this.value)"
-                onchange="CtoF(this.value)">
+              <input>
+                <label>Chosen Number: </label>
+                <input id="number" type="number" placeholder="Enter Value"></input>
               </p>
-              <p>The Fahrenheit value is <span id="outputFahrenheit" style="color:blue"></span></p>
-                <br>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="w3-row-padding" style ="margin: 20px auto">
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h4 style="text-align:left"> 2. Fahrenheit to Celsius</h4>
-              <p><label>Fahrenheit</label>
-                <input id="inputFahrenheit" type="number" placeholder="Enter Value"
-                oninput="FtoC(this.value)"
-                onchange="FtoC(this.value)">
+              <p>
+                <button input type="button" value="compute" class="w3-button w3-theme-d1" onclick="factorialComputation()">Factorial</button>
+                <button input type="button" value="compute" class="w3-button w3-theme-d1" onclick="sumComputation()">Sum</button>
+                <button input type="button" value="compute" class="w3-button w3-theme-d1" onclick="averageComputation()">Average</button>
               </p>
-              <p>The Celsius value is <span id="outputCelsius" style="color:blue"></span></p>
-                <br>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="w3-row-padding" style ="margin: 20px auto">
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h4 style="text-align:left"> 3. Meters to Feet</h4>
-              <p><label>Meters</label>
-                <input id="inputMeters" type="number" placeholder="Enter Value"
-                oninput="MtoFT(this.value)"
-                onchange="MtoFT(this.value)">
+              <p>
+                <label>Factorial: </label>
+                <label id="factorial"></label>
               </p>
-              <p>The Feet value is <span id="outputFeet" style="color:purple"></span></p>
-                <br>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="w3-row-padding" style ="margin: 20px auto">
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h4 style="text-align:left"> 4. Feet to Meters</h4>
-              <p><label>Feet</label>
-                <input id="inputFeet" type="number" placeholder="Enter Value"
-                oninput="FTtoM(this.value)"
-                onchange="FTtoM(this.value)">
-              </p>
-              <p>The Meter value is <span id="outputMeters" style="color:purple"></span></p>
-                <br>
             </div>
           </div>
         </div>
@@ -137,21 +91,35 @@
 
 <script>
 
-  function CtoF(celsius) {
-    celsius = parseFloat(celsius);
-    document.getElementById("outputFahrenheit").innerHTML = (celsius * 9 / 5) + 32; }
+  function factorialComputation() {
+    var number = document.getElementById("number").value;
+    let num = 1;
+    let factorial = 1;
+   
+    while (num <= number){
+      factorial = factorial * num;
+      num++;
+    }
+    document.getElementById("factorial").innerHTML = factorial;
+  }
 
-  function FtoC(fahrenheit) {
-    fahrenheit = parseFloat(fahrenheit);
-    document.getElementById("outputCelsius").innerHTML = (fahrenheit-32) * 5 / 9; }
+  function sumComputation(){
+    var number = document.getElementById("number").value;
+    var newNum;
+    var sum;
 
-  function MtoFT(meters) {
-    meters = parseFloat(meters);
-    document.getElementById("outputFeet").innerHTML = meters * 3.28084; }
+    do{
+      newNum = number - 1;
+      sum = number + newNum;
+      newNum--;
+    } while (newNum < 0);
+  }
 
-  function FTtoM(feet) {
-    feet = parseFloat(feet);
-    document.getElementById("outputMeters").innerHTML = feet * 0.3048; }
+  function averageComputation(){
+    var number = document.getElementById("number").value;
+    var num;
+    var average;
+  }
 
 </script> 
 </body>
