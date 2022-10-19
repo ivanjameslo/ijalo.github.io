@@ -65,9 +65,7 @@
                 <input id="number" type="number" placeholder="Enter Value"></input>
               </p>
               <p>
-                <button input type="button" value="compute" class="w3-button w3-theme-d1" onclick="factorialComputation()">Factorial</button>
-                <button input type="button" value="compute" class="w3-button w3-theme-d1" onclick="sumComputation()">Sum</button>
-                <button input type="button" value="compute" class="w3-button w3-theme-d1" onclick="averageComputation()">Average</button>
+                <button input type="button" value="compute" class="w3-button w3-theme-d1" onclick="computation()">Compute</button>
               </p>
               <p>
                 <label id="factorial"></label>
@@ -95,7 +93,7 @@
 
 <script>
 
-  function factorialComputation() {
+  function computation() {
     var number = document.getElementById("number").value;
     let num = 1;
     let factorial = 1;
@@ -105,10 +103,7 @@
       num++;
     }
     document.getElementById("factorial").innerHTML = "Factorial: " + factorial;
-  }
 
-  function sumComputation(){
-    var number = document.getElementById("number").value;
     let adder = 1;
     let sum = 0;
 
@@ -117,12 +112,7 @@
       adder ++;
     } while (adder <= number);
     document.getElementById("sum").innerHTML = "Sum: " + sum;
-  }
 
-  function averageComputation(){
-    var number = document.getElementById("number").value;
-    let adder = 1;
-    let sum = 0;
     var average;
 
     for (adder; adder <= number; adder++){
@@ -133,6 +123,7 @@
     average = average.toFixed(2);
     document.getElementById("average").innerHTML = "Average: " + average;
   }
+
 
 </script> 
 </body>
