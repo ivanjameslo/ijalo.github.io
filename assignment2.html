@@ -61,9 +61,11 @@
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
-              <input>
+              <p>
                 <label>Taxable Income: </label>
                 <input id="taxableIncome" type="number" placeholder="Enter Value"></input>
+              </p>
+              <p>
                 <button input type="button" value="compute" class="w3-button w3-theme-d1 w3-margin-bottom" onclick="computation()">Compute</button>
               </p>
               <p>
@@ -91,29 +93,36 @@
   function computation() {
     var taxIncome = document.getElementById("taxableIncome").value;
     var incomeTax;
+    var finalIncomeTax;
     if (taxIncome <= 250000){
       incomeTax = 0.00;
-      document.getElementById("incomeTax").innerHTML = incomeTax;
+      finalIncomeTax = incomeTax.toFixed(2);
+      document.getElementById("incomeTax").innerHTML = finalIncomeTax;
     }
     else if (taxIncome > 250000 && taxIncome <=400000){
       incomeTax = (taxIncome - 250000) * 0.20;
-      document.getElementById("incomeTax").innerHTML = incomeTax;
+      finalIncomeTax = incomeTax.toFixed(2);
+      document.getElementById("incomeTax").innerHTML = finalIncomeTax;
     }
     else if (taxIncome > 400000 && taxIncome <= 800000){
       incomeTax = ((taxIncome - 400000) * 0.25) + 30000;
-      document.getElementById("incomeTax").innerHTML = incomeTax;
+      finalIncomeTax = incomeTax.toFixed(2);
+      document.getElementById("incomeTax").innerHTML = finalIncomeTax;
     }
     else if (taxIncome > 800000 && taxIncome <= 2000000){
       incomeTax = ((taxIncome - 800000) *0.30) + 130000;
-      document.getElementById("incomeTax").innerHTML = incomeTax;
+      finalIncomeTax = incomeTax.toFixed(2);
+      document.getElementById("incomeTax").innerHTML = finalIncomeTax;
     }
     else if (taxIncome > 2000000 && taxIncome <= 8000000){
       incomeTax = ((taxIncome - 2000000) *0.32) + 490000;
-      document.getElementById("incomeTax").innerHTML = incomeTax;
+      finalIncomeTax = incomeTax.toFixed(2);
+      document.getElementById("incomeTax").innerHTML = finalIncomeTax;
     }
     else if (taxIncome > 8000000){
       incomeTax = ((taxIncome - 8000000) * 0.35) + 2410000;
-      document.getElementById("incomeTax").innerHTML = incomeTax;
+      finalIncomeTax = incomeTax.toFixed(2);
+      document.getElementById("incomeTax").innerHTML = finalIncomeTax;
     }
   }
 
