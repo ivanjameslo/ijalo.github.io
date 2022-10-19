@@ -106,12 +106,12 @@
 
   function sumComputation(){
     var number = document.getElementById("number").value;
-    var currentNum;
+    let currentNum = 1;
     var sum;
 
     do{
       sum = currentNum + 1;
-      currentNum++;
+      currentNum = currentNum + 1;
     } while (currentNum > number);
     document.getElementById("sum").innerHTML = "Sum: " + sum;
   }
