@@ -35,6 +35,21 @@
         display: table;
         clear: both;
       }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
       </style>
 
 </head>
@@ -128,7 +143,7 @@
           </p>
           <p style="text-align:center"><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="clear()">Clear all Information</button></p>
           <br>
-          <p id="employee">
+          <p id="employee"></p>
             <table>
               <tr>
                 <th>No.</th>
@@ -227,7 +242,7 @@ employee = [];
 
   function showInformation(){
     var i,spaces,ln;
-    var tbody,tb;
+    var tbody;
     var l = employee.length;
 
     for (i = 0, spaces = "", tbody = ''; i < l; i++){
