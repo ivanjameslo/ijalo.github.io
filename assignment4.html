@@ -143,18 +143,7 @@
           </p>
           <p style="text-align:center"><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="clear()">Clear all Information</button></p>
 
-            <table>
-              <tr>
-                <th>No.</th>
-                <th>Employee Name</th>
-                <th>Days Worked</th>
-                <th>Daily Rate</th>
-                <th>Gross Pay</th>
-                <th>Deduction Amount</th>
-                <th>Net Pay</th>
-              </tr>
-            </table>
-            <p id="employee"></p>
+          <p id="employee"></p>
 
           </div>
         </div>
@@ -242,8 +231,20 @@ employee = [];
 
   function showInformation(){
     var i,spaces,ln;
-    var tbody;
+    var tbody, theader;
     var l = employee.length;
+
+    theader = "<thead>";
+    theader += "<tr>";
+    theader += "<th>No.</th>"; 
+    theader += "<th>Employee Name </th>"; 
+    theader += "<th>Days Worked</th>"; 
+    theader += "<th>Daily Rate</th>";
+    theader += "<th>Gross Pay</th>"; 
+    theader += "<th>Deduction Amount</th>";  
+    theader += "<th>Net Pay</th>"; 
+    theader += "</tr>";
+    theader = "</thead>";
 
     for (i = 0, spaces = "", tbody = ''; i < l; i++){
       ln = i + 1;
