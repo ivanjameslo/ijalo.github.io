@@ -50,30 +50,49 @@
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
               <h1>Simple Payroll</h1>
-              <h6>Below are the measurements that you can try to converting! Click the Home icon on the upper left if you want to go back to the Main Page. Thank you!</h6>
+              <h6>Input the necessary information below and see the simple payroll come to life! Click the Home icon on the upper left if you want to go back to the Main Page. Thank you!</h6>
               <br>
             </div>
           </div>
         </div>
       </div>
 
+</div>
+
+<!--left column-->
+<div class="w3-col m3">
+
       <div class="w3-row-padding" style ="margin: 20px auto">
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
-              <h4 style="text-align:left"> 1. Celsius to Fahrenheit</h4>
-              <p><label>Celsius</label>
-                <input id="inputCelsius" type="number" placeholder="Enter Value"
-                oninput="CtoF(this.value)"
-                onchange="CtoF(this.value)">
-              </p>
-              <p>The Fahrenheit value is <span id="outputFahrenheit" style="color:blue"></span></p>
-                <br>
+            <p>
+              <label>Name of Employee: </label>
+              <input id="nameEmployee" type="text" placeholder="Enter name"></input>
+            </p>
+            <p>
+              <label>Days Worked: </label>
+              <input id="daysWorked" type="number" placeholder="Enter number"></input>
+            </p>
+            <p>
+              <label>Deduction Amount: </label>
+              <input id="deductionAmount" type="number" placeholder="Enter number"></input>
+            </p>
+            <p>
+              <label>Daily Rate: </label>
+              <input id="dailyRate" type="number" placeholder="Enter number"></input>
+            </p>
+            <br>
+            <p><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="add()">Add Information</button></p>
             </div>
           </div>
         </div>
       </div>
 
+</div>
+
+<!--right column-->
+<div style ="text-align:center; width:50%; margin:80px auto">
       <div class="w3-row-padding" style ="margin: 20px auto">
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
@@ -90,42 +109,8 @@
           </div>
         </div>
       </div>
-
-      <div class="w3-row-padding" style ="margin: 20px auto">
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h4 style="text-align:left"> 3. Meters to Feet</h4>
-              <p><label>Meters</label>
-                <input id="inputMeters" type="number" placeholder="Enter Value"
-                oninput="MtoFT(this.value)"
-                onchange="MtoFT(this.value)">
-              </p>
-              <p>The Feet value is <span id="outputFeet" style="color:purple"></span></p>
-                <br>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="w3-row-padding" style ="margin: 20px auto">
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h4 style="text-align:left"> 4. Feet to Meters</h4>
-              <p><label>Feet</label>
-                <input id="inputFeet" type="number" placeholder="Enter Value"
-                oninput="FTtoM(this.value)"
-                onchange="FTtoM(this.value)">
-              </p>
-              <p>The Meter value is <span id="outputMeters" style="color:purple"></span></p>
-                <br>
-            </div>
-          </div>
-        </div>
-      </div>
-
 </div>
+
 
 <footer class="w3-container w3-theme-d3 w3-padding-16">
   <h5>Footer</h5>
@@ -138,20 +123,7 @@
 <script>
 
   function CtoF(celsius) {
-    celsius = parseFloat(celsius);
-    document.getElementById("outputFahrenheit").innerHTML = (celsius * 9 / 5) + 32; }
-
-  function FtoC(fahrenheit) {
-    fahrenheit = parseFloat(fahrenheit);
-    document.getElementById("outputCelsius").innerHTML = (fahrenheit-32) * 5 / 9; }
-
-  function MtoFT(meters) {
-    meters = parseFloat(meters);
-    document.getElementById("outputFeet").innerHTML = meters * 3.28084; }
-
-  function FTtoM(feet) {
-    feet = parseFloat(feet);
-    document.getElementById("outputMeters").innerHTML = feet * 0.3048; }
+   }
 
 </script> 
 </body>
