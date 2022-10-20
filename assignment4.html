@@ -92,24 +92,21 @@
             <div class="w3-col m12">
               <div class="w3-card w3-round w3-white">
                 <div class="w3-container w3-padding">
-                <p>
-                  <label for="nameEmployee">Name of Employee: </label>
-                  <input id="nameEmployee" type="text" placeholder="Enter name"></input>
-                </p>
-                <p>
-                  <label for="daysWorked">Days Worked: </label>
-                  <input id="daysWorked" type="number" placeholder="Enter number"></input>
-                </p>
-                <p>
-                  <label for="dailyRate">Daily Rate: </label>
-                  <input id="dailyRate" type="number" placeholder="Enter number"></input>
-                </p>
-                <p>
-                  <label for="deductionAmount">Deduction Amount: </label>
-                  <input id="deductionAmount" type="number" placeholder="Enter number"></input>
-                </p>
-                <br>
-                <p><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="add()">Add Information</button></p>
+                
+                  <p><label for="nameEmployee">Name of Employee: </label></p>
+                  <p><input id="nameEmployee" type="text" placeholder="Enter name"></input></p>
+            
+                  <p><label for="daysWorked">Days Worked: </label></p>
+                  <p><input id="daysWorked" type="number" placeholder="Enter number"></input></p>
+                
+                  <p><label for="dailyRate">Daily Rate: </label></p>
+                  <p><input id="dailyRate" type="number" placeholder="Enter number"></input></p>
+
+                  <p><label for="deductionAmount">Deduction Amount: </label></p>
+                  <p><input id="deductionAmount" type="number" placeholder="Enter number"></input></p>
+
+                  <p style="text-align:center"><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="add()">Add Information</button></p>
+
                 </div>
               </div>
             </div>
@@ -122,16 +119,28 @@
       <div class="w3-col m12">
         <div class="w3-card w3-round w3-white">
           <div class="w3-container w3-padding">
-          <p>
+          <p style ="text-align:center">
             <label for="employeeList">List of Employee/s: </label>
             <input id="employeeList" name="employeeList" readonly></input>
-            <label for="delete">Delete Information #: </label>
-            <input id="delete" type="number" placeholder="Enter number"></input>
+            <label for="deleteInfo">Delete Information #: </label>
+            <input id="deleteInfo" type="number" placeholder="Enter number"></input>
             <button input type="button" value="add" class="w3-button w3-theme-d1" onclick="deleteNumber()">Delete</button>
           </p>
-          <p><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="clear()">Clear all Information</button></p>
+          <p style="text-align:center"><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="clear()">Clear all Information</button></p>
           <br>
-          <p id="inputsOnTable"></p>
+          <p id="employee">
+            <table>
+              <tr>
+                <th>No.</th>
+                <th>Employee Name</th>
+                <th>Days Worked</th>
+                <th>Daily Rate</th>
+                <th>Gross Pay</th>
+                <th>Deduction Amount</th>
+                <th>Net Pay</th>
+              </tr>
+            </table>
+          </p>
           </div>
         </div>
       </div>
@@ -184,21 +193,55 @@ employee = [];
     employeeDetails.nameEmployee = document.getElementById("nameEmployee").value;
     employeeDetails.daysWorked = document.getElementById("daysWorked").value;
     employeeDetails.dailyRate = document.getElementById("dailyRate").value;
+    employeeDetails.grossPay = daysWorked * dailyRate;
     employeeDetails.deductionAmount = document.getElementById("deductionAmount").value;
+    employeeDetails.netPay = grossPay - deductionAmount;
 
     console.log(employeeDetails.nameEmployee);
     console.log(employeeDetails.daysWorked);
     console.log(employeeDetails.dailyRate);
-
-
-
+    console.log(employeeDetails.grossPay);
     console.log(employeeDetails.deductionAmount);
+    console.log(employeeDetails.netPay);
 
+    employee.push(employeeDetails.nameEmployee);
 
+    console.log(employee.length);
+    document.getElementById("nameEmployee").value = employee.length;
+
+    showInformation();
   }
 
   function deleteNumber(){
+    var toDelete;
+    var empNumber;
 
+    empNumber = document.getElementById("deleteInfo").value;
+    toDelete = confirm("Delete Employee Information Number " + empNumber + "?");
+
+    if (toDelete){
+      employee.splice (empNumber - 1, 1);
+      document.getElementById("employeeName").value = employee.length;
+    }
+  }
+
+  function showInformation(){
+    var i,spaces,ln;
+    var tbody,tb;
+    var l = employee.length;
+
+    for (i = 0, spaces = "", tbody = ''; i < l; i++){
+      ln = i + 1;
+      tbody += "<tr>"
+        + '<td>' + ln + '</td>' 
+        + '<td>' + employee[i].employeeName + '</td>'
+        + '<td style = "text-align:right">' + employee[i].daysWorked + '</td>' 
+        + '<td style = "text-align:right">' + employee[i].dailyRate + '</td>' 
+        + '<td style = "text-align:right">' + employee[i].grossPay + '</td>'
+        + '<td style = "text-align:right">' + employee[i].deductionAmount + '</td>' 
+        + '<td style = "text-align:right">' + employee[i].netPay + '</td>' 
+        +"</tr>" 
+    }
   }
 
 /*
