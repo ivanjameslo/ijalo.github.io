@@ -142,6 +142,20 @@
             <button input type="button" value="add" class="w3-button w3-theme-d1" onclick="deleteNumber()">Delete</button>
           </p>
           <p style="text-align:center"><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="clear()">Clear all Information</button></p>
+          
+          <p>
+            <table>
+              <tr>
+                <th>No.</th>
+                <th>Employee Name</th>
+                <th>Days Worked</th>
+                <th>Daily Rate</th>
+                <th>Gross Pay</th>
+                <th>Deduction Amount</th>
+                <th>Net Pay</th>
+              </tr>
+            </table>
+          </p>
 
           <p id="tableInputs"></p>
 
@@ -164,12 +178,12 @@
 
 <script>
 
-employee = [];
+var employee = [];
 
   function init_EmployeeList() {
     employee = [];
     document.getElementById("employeeList").value = employee.length;
-    document.getElementById("inputsOnTable").innerHTML ="";
+    document.getElementById("tableInputs").innerHTML ="";
   }
 
   function clear(){
@@ -234,6 +248,7 @@ employee = [];
     var tbody, theader;
     var l = employee.length;
 
+    /*
     theader = "<thead>";
     theader += "<tr>";
     theader += "<th>No.</th>"; 
@@ -245,6 +260,7 @@ employee = [];
     theader += "<th>Net Pay</th>"; 
     theader += "</tr>";
     theader = "</thead>";
+    */
 
     for (i = 0, spaces = "", tbody = ''; i < l; i++){
       ln = i + 1;
@@ -277,8 +293,6 @@ employee = [];
         netPay = grossPay - deductionAmount;
   }
 */
-
-
 
 </script> 
 </body>
