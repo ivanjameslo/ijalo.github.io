@@ -39,7 +39,7 @@
 
 </head>
 
-<body class="w3-theme-l5">
+<body class="w3-theme-l5" onload="init_EmployeeList()">
 <!-- Navbar -->
 <div class="w3-top">
  <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
@@ -93,20 +93,20 @@
               <div class="w3-card w3-round w3-white">
                 <div class="w3-container w3-padding">
                 <p>
-                  <label>Name of Employee: </label>
+                  <label for="nameEmployee">Name of Employee: </label>
                   <input id="nameEmployee" type="text" placeholder="Enter name"></input>
                 </p>
                 <p>
-                  <label>Days Worked: </label>
+                  <label for="daysWorked">Days Worked: </label>
                   <input id="daysWorked" type="number" placeholder="Enter number"></input>
                 </p>
                 <p>
-                  <label>Deduction Amount: </label>
-                  <input id="deductionAmount" type="number" placeholder="Enter number"></input>
+                  <label for="dailyRate">Daily Rate: </label>
+                  <input id="dailyRate" type="number" placeholder="Enter number"></input>
                 </p>
                 <p>
-                  <label>Daily Rate: </label>
-                  <input id="dailyRate" type="number" placeholder="Enter number"></input>
+                  <label for="deductionAmount">Deduction Amount: </label>
+                  <input id="deductionAmount" type="number" placeholder="Enter number"></input>
                 </p>
                 <br>
                 <p><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="add()">Add Information</button></p>
@@ -122,13 +122,16 @@
       <div class="w3-col m12">
         <div class="w3-card w3-round w3-white">
           <div class="w3-container w3-padding">
-            <label>Number of Employee/s: </label>
-            <label id="numberOfEmployee"></label>
-            <label style="text-align:left">Delete Information #: </label>
-            <input id="delete" type="number" placeholder="Enter number" style="text-align:left"></input>
+          <p>
+            <label for="employeeList">List of Employee/s: </label>
+            <input id="employeeList" name="employeeList" readonly></input>
+            <label for="delete">Delete Information #: </label>
+            <input id="delete" type="number" placeholder="Enter number"></input>
+            <button input type="button" value="add" class="w3-button w3-theme-d1" onclick="deleteNumber()">Delete</button>
           </p>
+          <p><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="clear()">Clear all Information</button></p>
           <br>
-          <p><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="add()">Add Information</button></p>
+          <p id="inputsOnTable"></p>
           </div>
         </div>
       </div>
@@ -148,9 +151,72 @@
 
 <script>
 
-  function add() {
+employee = [];
+
+  function init_EmployeeList() {
+    employee = [];
+    document.getElementById("employeeList").value = employee.length;
+    document.getElementById("inputsOnTable").innerHTML ="";
+  }
+
+  function clear(){
+    var clearAll;
+    clearAll = confirm("Delete all information from the table?");
+    if (clearAll){
+      init_EmployeeList();
+    }
+  }
+
+  function add(){
+    var employeeDetails = {
+      "nameEmployee":nameEmployee, 
+      "daysWorked":0, 
+      "dailyRate":0, 
+      "grossPay":function grossPayComputation(){
+        return (this.daysWorked * this.dailyRate);
+      }, 
+      "deductionAmount":0, 
+      "netPay":function netPayCmputation(){
+        return (this. grossPay - this.deductionAmount);
+      },
+    }
+
+    employeeDetails.nameEmployee = document.getElementById("nameEmployee").value;
+    employeeDetails.daysWorked = document.getElementById("daysWorked").value;
+    employeeDetails.dailyRate = document.getElementById("dailyRate").value;
+    employeeDetails.deductionAmount = document.getElementById("deductionAmount").value;
+
+    console.log(employeeDetails.nameEmployee);
+    console.log(employeeDetails.daysWorked);
+    console.log(employeeDetails.dailyRate);
+
+
+
+    console.log(employeeDetails.deductionAmount);
+
 
   }
+
+  function deleteNumber(){
+
+  }
+
+/*
+  function grossPayComputation(){
+        var grossPay;
+        let daysWorked = document.getElementById("daysWorked").value;
+        let dailyRate = document.getElementById("dailyRate").value;
+        grossPay = daysWorked * dailyRate;
+  }
+
+  function netPayCmputation(){
+        var netPay;
+        let deductionAmount = document.getElementById("deductionAmount").value;
+        netPay = grossPay - deductionAmount;
+  }
+*/
+
+
 
 </script> 
 </body>
