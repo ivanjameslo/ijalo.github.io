@@ -222,10 +222,10 @@ var employee = [];
     console.log(employeeDetails.deductionAmount);
     console.log(employeeDetails.netPay);
 
-    employee.push(employeeDetails.nameEmployee);
+    employee.push(employeeDetails);
 
-    console.log(employee.length);
-    document.getElementById("nameEmployee").value = employee.length;
+    console.log(employeeList.length);
+    document.getElementById("employeeList").value = employee.length;
 
     showInformation();
   }
@@ -239,7 +239,7 @@ var employee = [];
 
     if (toDelete){
       employee.splice (empNumber - 1, 1);
-      document.getElementById("employeeName").value = employee.length;
+      document.getElementById("employeeList").value = employee.length;
     }
   }
 
