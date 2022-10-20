@@ -10,6 +10,32 @@
     <style>
         html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
     </style>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      /* Create two unequal columns that floats next to each other */
+      .column {
+        float: left;
+        padding: 10px;
+      }
+      
+      .left {
+        width: 25%;
+      }
+      
+      .right {
+        width: 75%;
+      }
+      
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      </style>
 </head>
 
 <body class="w3-theme-l5">
@@ -59,11 +85,9 @@
 
 </div>
 
-<!-- The Grid -->
-<div class="w3-row">
-  <!-- Left Column -->
-  <div class="w3-col m3">
-    <div style ="text-align:left; width:100%">
+<!-- Left Column -->
+<div class="row">
+    <div class="column left" style ="text-align:left; width:100%">
           <div class="w3-row-padding" style ="margin: 20px auto">
             <div class="w3-col m12">
               <div class="w3-card w3-round w3-white">
