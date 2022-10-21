@@ -145,6 +145,7 @@
           
           <p>
             <table id="personalTable">
+              
               <thead id="tableHeader">
                 <tr>
                   <th>No.</th>
@@ -157,9 +158,7 @@
                 </tr>
               </thead>
 
-              <tbody id="details">
-
-              </tbody>
+              <tbody id="details"></tbody>
             </table>
           </p>
 
@@ -187,7 +186,7 @@ var employee = [];
   function init_EmployeeList() {
     employee = [];
     document.getElementById("employeeList").value = employee.length;
-    document.getElementById("tableInputs").innerHTML ="";
+    document.getElementById("details").innerHTML ="";
   }
 
   function clear(){
@@ -227,51 +226,14 @@ var employee = [];
     cell05.innerHTML = grossPay;
     cell06.innerHTML = deductionAmount;
     cell07.innerHTML = netPay;
-
-    /*var employeeDetails = {
-      "nameEmployee":nameEmployee, 
-      "daysWorked":0, 
-      "dailyRate":0, 
-      "grossPay":function grossPayComputation(){
-        return (this.daysWorked * this.dailyRate);
-      }, 
-      "deductionAmount":0, 
-      "netPay":function netPayCmputation(){
-        return (this. grossPay - this.deductionAmount);
-      },
-    }
-
-    employeeDetails.nameEmployee = document.getElementById("nameEmployee").value;
-    employeeDetails.daysWorked = document.getElementById("daysWorked").value;
-    employeeDetails.dailyRate = document.getElementById("dailyRate").value;
-    employeeDetails.grossPay = daysWorked * dailyRate;
-    employeeDetails.deductionAmount = document.getElementById("deductionAmount").value;
-    employeeDetails.netPay = grossPay - deductionAmount;
-
-    console.log(employeeDetails.nameEmployee);
-    console.log(employeeDetails.daysWorked);
-    console.log(employeeDetails.dailyRate);
-    console.log(employeeDetails.grossPay);
-    console.log(employeeDetails.deductionAmount);
-    console.log(employeeDetails.netPay);
-
-    employee.push(employeeDetails);
-
-    console.log(employeeList.length);
-    document.getElementById("employeeList").value = employee.length;
-
-    showInformation();
-    */
   }
 
   function deleteNumber(){
-    var toDelete;
     var empNumber;
     var line;
 
     empNumber = document.getElementById("deleteInfo").value;
     line = document.getElementById("details").rows.length;
-    toDelete = confirm("Delete Employee Information Number " + empNumber + "?");
     document.getElementById("details").deleteRow(empNumber - 1);
 
     var line2 = empNumber;
@@ -283,58 +245,6 @@ var employee = [];
       line2++;
     }
   }
-
-  /*
-  function showInformation(){
-    var i,spaces,ln;
-    var tbody, theader;
-    var l = employee.length;
-
-    theader = "<thead>";
-    theader += "<tr>";
-    theader += "<th>No.</th>"; 
-    theader += "<th>Employee Name </th>"; 
-    theader += "<th>Days Worked</th>"; 
-    theader += "<th>Daily Rate</th>";
-    theader += "<th>Gross Pay</th>"; 
-    theader += "<th>Deduction Amount</th>";  
-    theader += "<th>Net Pay</th>"; 
-    theader += "</tr>";
-    theader = "</thead>";
-  
-
-    for (i = 0, spaces = "", tbody = ''; i < l; i++){
-      ln = i + 1;
-      tbody += "<tr>"
-        + '<td>' + ln + '</td>' 
-        + '<td>' + employee[i].employeeName + '</td>'
-        + '<td style = "text-align:right">' + employee[i].daysWorked + '</td>' 
-        + '<td style = "text-align:right">' + employee[i].dailyRate + '</td>' 
-        + '<td style = "text-align:right">' + employee[i].grossPay + '</td>'
-        + '<td style = "text-align:right">' + employee[i].deductionAmount + '</td>' 
-        + '<td style = "text-align:right">' + employee[i].netPay + '</td>' 
-        +"</tr>" 
-    }
-
-    console.log(theader+tbody);
-    document.getElementById("tableInputs").innerHTML = "<table>" + theader + tbody + "</table>";
-  }
-  */
-
-/*
-  function grossPayComputation(){
-        var grossPay;
-        let daysWorked = document.getElementById("daysWorked").value;
-        let dailyRate = document.getElementById("dailyRate").value;
-        grossPay = daysWorked * dailyRate;
-  }
-
-  function netPayCmputation(){
-        var netPay;
-        let deductionAmount = document.getElementById("deductionAmount").value;
-        netPay = grossPay - deductionAmount;
-  }
-*/
 
 </script> 
 </body>
