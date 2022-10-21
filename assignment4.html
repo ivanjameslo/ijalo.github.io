@@ -111,7 +111,7 @@
                   <label for="nameEmployee">Name of Employee: </label><br>
                   <input id="nameEmployee" type="text" placeholder="Enter name"></input><br><br>
             
-                  <label for="daysWorked">Days Worked: </label></p><br>
+                  <label for="daysWorked">Days Worked: </label><br>
                   <input id="daysWorked" type="number" placeholder="Enter number"></input><br><br>
                 
                   <label for="dailyRate">Daily Rate: </label><br>
@@ -120,7 +120,7 @@
                   <label for="deductionAmount">Deduction Amount: </label><br>
                   <input id="deductionAmount" type="number" placeholder="Enter number"></input><br><br>
 
-                  <button input type="button" value="add" class="w3-button w3-theme-d1" style="text-align:center" onclick="add()">Add Information</button>
+                  <p style="text-align:center"><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="add()">Add Information</button></p>
 
                 </div>
               </div>
@@ -141,8 +141,8 @@
             <input id="deleteInfo" type="number" placeholder="Enter number"></input>
             <button input type="button" value="add" class="w3-button w3-theme-d1" onclick="deleteNumber()">Delete</button>
           </p>
-          <button input type="button" value="add" class="w3-button w3-theme-d1" style="text-align:center" onclick="clear()">Clear all Information</button>
-          
+        
+          <p>
             <table id="personalTable">
               
               <thead id="tableHeader">
@@ -159,6 +159,7 @@
 
               <tbody id="details"></tbody>
             </table>
+          </p>
 
           </div>
         </div>
@@ -178,22 +179,6 @@
 </footer>
 
 <script>
-
-var employee = [];
-
-  function init_EmployeeList() {
-    employee = [];
-    document.getElementById("employeeList").value = employee.length;
-    document.getElementById("details").innerHTML ="";
-  }
-
-  function clear(){
-    var clearAll;
-    clearAll = confirm("Delete all information from the table?");
-    if (clearAll){
-      init_EmployeeList();
-    }
-  }
 
   function add(){
     var employeeName = document.getElementById("employeeName").value;
