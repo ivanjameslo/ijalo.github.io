@@ -144,20 +144,24 @@
           <p style="text-align:center"><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="clear()">Clear all Information</button></p>
           
           <p>
-            <table>
-              <tr>
-                <th>No.</th>
-                <th>Employee Name</th>
-                <th>Days Worked</th>
-                <th>Daily Rate</th>
-                <th>Gross Pay</th>
-                <th>Deduction Amount</th>
-                <th>Net Pay</th>
-              </tr>
+            <table id="personalTable">
+              <thead id="tableHeader">
+                <tr>
+                  <th>No.</th>
+                  <th>Employee Name</th>
+                  <th>Days Worked</th>
+                  <th>Daily Rate</th>
+                  <th>Gross Pay</th>
+                  <th>Deduction Amount</th>
+                  <th>Net Pay</th>
+                </tr>
+              </thead>
+
+              <tbody id="details">
+
+              </tbody>
             </table>
           </p>
-
-          <p id="tableInputs"></p>
 
           </div>
         </div>
@@ -195,7 +199,36 @@ var employee = [];
   }
 
   function add(){
-    var employeeDetails = {
+    var employeeName = document.getElementById("employeeName").value;
+    var daysWorked = document.getElementById("daysWorked").value;
+    var dailyRate = document.getElementById("dailyRate").value;
+    var deductionAmount = document.getElementById("deductionAmount").value;
+
+    let grossPay = daysWorked * dailyRate;
+    let netPay = grossPay - deductionAmount;
+
+    var detailsTable = document.getElementById("details");
+    var rowCount = detailsTable.rows.length;
+    
+    var row = table.insertRow();
+    
+    var cell01 =  row.insertCell(0);
+    var cell02 =  row.insertCell(1);
+    var cell03 =  row.insertCell(2);
+    var cell04 =  row.insertCell(3);
+    var cell05 =  row.insertCell(4);
+    var cell06 =  row.insertCell(5);
+    var cell07 =  row.insertCell(6);
+
+    cell01.innerHTML = rowCount + 1;
+    cell02.innerHTML = employeeName;
+    cell03.innerHTML = daysWorked;
+    cell04.innerHTML = dailyRate;
+    cell05.innerHTML = grossPay;
+    cell06.innerHTML = deductionAmount;
+    cell07.innerHTML = netPay;
+
+    /*var employeeDetails = {
       "nameEmployee":nameEmployee, 
       "daysWorked":0, 
       "dailyRate":0, 
@@ -228,27 +261,35 @@ var employee = [];
     document.getElementById("employeeList").value = employee.length;
 
     showInformation();
+    */
   }
 
   function deleteNumber(){
     var toDelete;
     var empNumber;
+    var line;
 
     empNumber = document.getElementById("deleteInfo").value;
+    line = document.getElementById("details").rows.length;
     toDelete = confirm("Delete Employee Information Number " + empNumber + "?");
+    document.getElementById("details").deleteRow(empNumber - 1);
 
-    if (toDelete){
-      employee.splice (empNumber - 1, 1);
-      document.getElementById("employeeList").value = employee.length;
+    var line2 = empNumber;
+    var i;
+    
+    while (line2 <= line){
+      i = documen.getElementById("details").rows[line2 - 1].cells;
+      i[0].innerHTML = line2;
+      line2++;
     }
   }
 
+  /*
   function showInformation(){
     var i,spaces,ln;
     var tbody, theader;
     var l = employee.length;
 
-    /*
     theader = "<thead>";
     theader += "<tr>";
     theader += "<th>No.</th>"; 
@@ -260,7 +301,7 @@ var employee = [];
     theader += "<th>Net Pay</th>"; 
     theader += "</tr>";
     theader = "</thead>";
-    */
+  
 
     for (i = 0, spaces = "", tbody = ''; i < l; i++){
       ln = i + 1;
@@ -278,6 +319,7 @@ var employee = [];
     console.log(theader+tbody);
     document.getElementById("tableInputs").innerHTML = "<table>" + theader + tbody + "</table>";
   }
+  */
 
 /*
   function grossPayComputation(){
