@@ -137,8 +137,6 @@
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
             <p style ="text-align:center">
-              <label>List of Employee/s: </label>
-              <input id="employeeList" name="employeeList" readonly></input>
               <label>Delete Information #: </label>
               <input id="deleteInfo" type="number" placeholder="Enter number"></input>
               <button input type="button" id="remove" class="w3-button w3-theme-d1" onclick="deleteNumber()">Delete</button>
@@ -216,16 +214,20 @@
   }
 
   function deleteNumber(){
+    var toDelete;
     var empNumber = document.getElementById("deleteInfo").value;
     var length = document.getElementById("details").rows.length;
     document.getElementById("details").deleteRow(empNumber - 1);
 
+    toDelete = confirm("Delete Information Number " + empNumber + "?");
     var line = empNumber;
     
-    while (line <= length){
+    if (toDelete){
+      while (line <= length){
       var i = document.getElementById("details").rows[line - 1].cells;
       i[0].innerHTML = line;
       line++;
+      }
     }
   }
 
