@@ -108,19 +108,19 @@
               <div class="w3-card w3-round w3-white">
                 <div class="w3-container w3-padding">
                 
-                  <p><label for="nameEmployee">Name of Employee: </label></p>
-                  <p><input id="nameEmployee" type="text" placeholder="Enter name"></input></p>
+                  <label for="nameEmployee">Name of Employee: </label><br>
+                  <input id="nameEmployee" type="text" placeholder="Enter name"></input><br><br>
             
-                  <p><label for="daysWorked">Days Worked: </label></p>
-                  <p><input id="daysWorked" type="number" placeholder="Enter number"></input></p>
+                  <label for="daysWorked">Days Worked: </label></p><br>
+                  <input id="daysWorked" type="number" placeholder="Enter number"></input><br><br>
                 
-                  <p><label for="dailyRate">Daily Rate: </label></p>
-                  <p><input id="dailyRate" type="number" placeholder="Enter number"></input></p>
+                  <label for="dailyRate">Daily Rate: </label><br>
+                  <input id="dailyRate" type="number" placeholder="Enter number"></input><br><br>
 
-                  <p><label for="deductionAmount">Deduction Amount: </label></p>
-                  <p><input id="deductionAmount" type="number" placeholder="Enter number"></input></p>
+                  <label for="deductionAmount">Deduction Amount: </label><br>
+                  <input id="deductionAmount" type="number" placeholder="Enter number"></input><br><br>
 
-                  <p style="text-align:center"><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="add()">Add Information</button></p>
+                  <button input type="button" value="add" class="w3-button w3-theme-d1" style="text-align:center" onclick="add()">Add Information</button>
 
                 </div>
               </div>
@@ -141,9 +141,8 @@
             <input id="deleteInfo" type="number" placeholder="Enter number"></input>
             <button input type="button" value="add" class="w3-button w3-theme-d1" onclick="deleteNumber()">Delete</button>
           </p>
-          <p style="text-align:center"><button input type="button" value="add" class="w3-button w3-theme-d1" onclick="clear()">Clear all Information</button></p>
+          <button input type="button" value="add" class="w3-button w3-theme-d1" style="text-align:center" onclick="clear()">Clear all Information</button>
           
-          <p>
             <table id="personalTable">
               
               <thead id="tableHeader">
@@ -160,7 +159,6 @@
 
               <tbody id="details"></tbody>
             </table>
-          </p>
 
           </div>
         </div>
